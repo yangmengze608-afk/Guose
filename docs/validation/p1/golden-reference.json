@@ -1,0 +1,145 @@
+{
+  "source": "APPROVED_MANUAL_T3_EVALUATION_ONLY",
+  "planHash": "sha256:64d2f4ae2ae796e71ff666cb11ebea303cb46473113ebae5b400f4a5a5125dc1",
+  "changes": [
+    {
+      "id": "P01",
+      "region": "main / hero",
+      "after": {
+        "background": "#F4F4F0",
+        "heroBackgroundImage": "none",
+        "foreground": "#262B2C"
+      }
+    },
+    {
+      "id": "P02",
+      "region": "main palette",
+      "after": {
+        "foreground": "#262B2C",
+        "mutedForeground": "#586465",
+        "accent": "#365E60"
+      }
+    },
+    {
+      "id": "P03",
+      "region": "primary Button",
+      "after": {
+        "background": "#365E60",
+        "color": "#FFFFFF",
+        "hoverBackground": "#2A4D50",
+        "boxShadow": "0 1px 2px rgba(38,43,44,0.08)",
+        "border": "1px solid transparent"
+      }
+    },
+    {
+      "id": "P04",
+      "region": "secondary Button",
+      "after": {
+        "background": "#FEFEFC",
+        "color": "#365E60",
+        "borderColor": "#BCC9C4",
+        "hoverBackground": "#E7EEEA",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "id": "P05",
+      "region": "Button geometry and focus",
+      "after": {
+        "borderRadius": "8px",
+        "padding": "14px 24px",
+        "minHeight": "44px",
+        "focusRingColor": "#365E60",
+        "focusRingWidth": "2px",
+        "focusRingOffset": "2px",
+        "disabled": "preserve existing pointer-events/opacity",
+        "focusImplementation": "Visible outline 2px solid #365E60, offset2px; suppress Button ring box-shadow on focus locally. No global ring token mutation."
+      }
+    },
+    {
+      "id": "P06",
+      "region": "workspace Card",
+      "after": {
+        "background": "#FAFBF8",
+        "color": "#262B2C",
+        "border": "1px solid #D8DEDA",
+        "borderRadius": "16px",
+        "padding": {
+          "desktop": "32px",
+          "mobile": "24px"
+        },
+        "boxShadow": "0 2px 12px rgba(38,43,44,0.05)"
+      }
+    },
+    {
+      "id": "P07",
+      "region": "feature Cards",
+      "after": {
+        "background": "#FEFEFC",
+        "color": "#262B2C",
+        "border": "1px solid #D8DEDA",
+        "borderRadius": "10px",
+        "padding": {
+          "desktop": "32px",
+          "mobile": "24px"
+        },
+        "boxShadow": "none"
+      }
+    },
+    {
+      "id": "P08",
+      "region": "CTA Card",
+      "after": {
+        "background": "#E7EEEA",
+        "backgroundImage": "none",
+        "color": "#262B2C",
+        "paragraphColor": "#586465",
+        "border": "1px solid #C5D2CC",
+        "borderRadius": "12px",
+        "padding": {
+          "desktop": "48px",
+          "mobile": "28px"
+        },
+        "boxShadow": "none"
+      }
+    },
+    {
+      "id": "P09",
+      "region": "Card interior palette only",
+      "after": {
+        "taskRowBackground": "#EFF2EF",
+        "statusBackground": "#E7EEEA",
+        "statusForeground": "#365E60"
+      }
+    },
+    {
+      "id": "P10",
+      "region": "section whitespace",
+      "after": {
+        "heroAndFeaturesPaddingBlock": {
+          "desktop": "96px",
+          "mobile": "72px"
+        },
+        "ctaPaddingBottom": {
+          "desktop": "96px",
+          "mobile": "72px"
+        },
+        "horizontalPadding": "preserve px-6"
+      }
+    },
+    {
+      "id": "P11",
+      "region": "gaps and header whitespace",
+      "after": {
+        "heroGap": {
+          "desktop": "56px",
+          "mobile": "32px"
+        },
+        "featureGap": "28px",
+        "featureHeadingMarginBottom": "48px",
+        "responsiveBreakpoint": "preserve md=768px",
+        "gridColumns": "preserve desktop 2/3 and mobile 1/1"
+      }
+    }
+  ]
+}

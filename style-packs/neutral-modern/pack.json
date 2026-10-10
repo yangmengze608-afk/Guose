@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "OBSERVED",
+  "sourceKind": "AUTHORED_TARGET_POLICY",
+  "id": "neutral-modern",
+  "version": "0.1.0",
+  "name": "Neutral Modern",
+  "description": "A small authored target policy for exercising conservative migration planning; not evidence about the analyzed repository.",
+  "license": "MIT",
+  "semanticTokens": {
+    "primary": "#18181b",
+    "primary-foreground": "#fafafa",
+    "background": "#ffffff",
+    "surface": "#ffffff",
+    "foreground": "#18181b",
+    "muted": "#f4f4f5",
+    "muted-foreground": "#71717a",
+    "border": "#e4e4e7"
+  },
+  "roleTargets": {
+    "primary.action.background": { "utility": "bg-primary", "token": "primary", "property": "background", "value": "#18181b" },
+    "primary.action.foreground": { "utility": "text-primary-foreground", "token": "primary-foreground", "property": "foreground", "value": "#fafafa" },
+    "destructive.action.background": { "utility": "bg-destructive", "token": "destructive", "property": "background", "value": "#dc2626" },
+    "destructive.action.foreground": { "utility": "text-destructive-foreground", "token": "destructive-foreground", "property": "foreground", "value": "#fafafa" },
+    "surface.card": { "utility": "bg-card", "token": "card", "property": "background", "value": "#ffffff" },
+    "border.default": { "utility": "border-border", "token": "border", "property": "border", "value": "#e4e4e7" }
+  },
+  "typographyPolicy": {
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif",
+    "baseFontSize": "1rem",
+    "regularWeight": 400,
+    "strongWeight": 600
+  },
+  "radiusPolicy": { "base": "0.5rem" },
+  "shadowPolicy": { "base": "0 1px 2px rgb(0 0 0 / 0.05)" },
+  "spacingPolicy": { "baseUnit": "0.25rem" }
+}

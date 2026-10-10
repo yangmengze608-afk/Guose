@@ -1,0 +1,177 @@
+{
+  "date": "2026-10-10",
+  "runtime": {
+    "node": "24.21.0",
+    "npm": "11.12.1"
+  },
+  "method": "Prepared public staged source copied to disposable synthetic Git test fixture, no old Git history/dependencies/host context. Fixture author is reserved test identity, not public candidate author or human approval.",
+  "commands": [
+    {
+      "scope": "private archive current source",
+      "command": "npm run lint",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "npm run typecheck",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "npm test",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "npm run build",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "npm run test:locale",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "npm run test:grill",
+      "exit_code": 0
+    },
+    {
+      "scope": "private archive current source",
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "scope": "fixture",
+      "command": "npm ci --ignore-scripts (Node24)",
+      "exit_code": 0
+    },
+    {
+      "scope": "fixture-demo",
+      "command": "npm ci --ignore-scripts (Node24)",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree demo",
+      "command": "npm run lint",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run lint",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree demo",
+      "command": "npm run typecheck",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run typecheck",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree demo",
+      "command": "npm test",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree demo",
+      "command": "npm run build",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm test",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run build",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run test:locale",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run test:grill",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "node dist/cli/index.js --help",
+      "exit_code": 0
+    },
+    {
+      "scope": "fresh public-tree fixture",
+      "command": "npm run demo:workflow -- --inspect",
+      "exit_code": 0
+    }
+  ],
+  "audit": {
+    "root_full": {
+      "exit_code": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    "root_production": {
+      "exit_code": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    "demo_full": {
+      "exit_code": 1,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 2,
+        "high": 5,
+        "critical": 0,
+        "total": 7
+      }
+    },
+    "demo_production": {
+      "exit_code": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    }
+  },
+  "pack": {
+    "exit_code": 0,
+    "entries": 233,
+    "size": 172121,
+    "unpackedSize": 870627,
+    "sha": "704db4953468ccfdebd88ac02bf61a22df92e13c",
+    "forbidden": []
+  },
+  "publicCandidateCommit": "NOT_CREATED_PENDING_HUMAN_AUTHOR_DECISION",
+  "humanFreshSuccess": "PENDING_HUMAN",
+  "releaseGate": "NOT_INVOKED"
+}

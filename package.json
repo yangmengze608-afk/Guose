@@ -1,0 +1,40 @@
+{
+  "name": "guose",
+  "version": "0.1.0-rc.1",
+  "description": "Intent-first, evidence-aware frontend transformation with human review and isolated demo execution.",
+  "license": "MIT",
+  "files": ["dist", "LICENSE", "README.md", "THIRD_PARTY_NOTICES.md", "docs/licenses"],
+  "keywords": ["react", "tailwind", "design-intent", "static-analysis", "frontend-transformation"],
+  "type": "module",
+  "private": true,
+  "bin": {
+    "guose": "dist/cli/index.js"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "test:locale": "node scripts/verify-locale-fingerprint.mjs",
+    "test:grill": "node scripts/verify-grill-installation.mjs",
+    "demo:workflow": "node scripts/public-demo-workflow.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "execa": "^9.6.0",
+    "postcss": "^8.5.6",
+    "postcss-value-parser": "^4.2.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.7.2",
+    "eslint": "^10.11.0",
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^4.1.11"
+  }
+}

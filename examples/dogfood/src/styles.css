@@ -1,0 +1,13 @@
+:root {
+  --foreground: #000000;
+  --background: #ffffff;
+  --primary: #123456;
+  --primary-foreground: #ffffff;
+  --secondary: #000000;
+  --secondary-foreground: #ffffff;
+  --destructive: #000000;
+  --destructive-foreground: #ffffff;
+}
+
+.legacy-label { color: var(--primary); }
+.legacy-label { color: #123456; }

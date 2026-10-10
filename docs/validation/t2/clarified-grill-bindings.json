@@ -1,0 +1,154 @@
+{
+  "style": {
+    "value": "现代、克制、有东方气质",
+    "citations": [
+      {
+        "section": "Intent",
+        "quote": "现代、克制、有东方气质"
+      }
+    ]
+  },
+  "keywords": {
+    "value": [
+      "克制",
+      "安静",
+      "有留白",
+      "有层次"
+    ],
+    "citations": [
+      {
+        "section": "Key decisions",
+        "quote": "风格感受为克制、安静、有留白、有层次"
+      }
+    ]
+  },
+  "preserve": {
+    "value": [
+      "layout",
+      "content-structure",
+      "information-hierarchy",
+      "interaction",
+      "business-logic",
+      "navbar",
+      "footer",
+      "other-pages"
+    ],
+    "citations": [
+      {
+        "section": "Constraints",
+        "quote": "页面结构、信息层级和操作方式保持熟悉，业务逻辑不变"
+      },
+      {
+        "section": "Constraints",
+        "quote": "区块顺序、栅格列数、主要组件位置关系和内容结构保持不变"
+      },
+      {
+        "section": "Constraints",
+        "quote": "Navbar 和 Footer 先不动"
+      },
+      {
+        "section": "Constraints",
+        "quote": "共享 Button / Card 的变化不得默认扩散到其他页面"
+      }
+    ]
+  },
+  "modify": {
+    "value": [
+      "page-background",
+      "button",
+      "card",
+      "section-spacing",
+      "component-padding",
+      "palette",
+      "radius",
+      "shadow",
+      "border"
+    ],
+    "citations": [
+      {
+        "section": "Key decisions",
+        "quote": "范围仅为首页的页面背景、Button、Card、区块上下间距、组件内部 padding"
+      },
+      {
+        "section": "Key decisions",
+        "quote": "用细边框、留白和明暗层次区分 Card，不靠大阴影和渐变"
+      },
+      {
+        "section": "Constraints",
+        "quote": "颜色、圆角、阴影、边框、留白和整体密度都可以有明显变化"
+      }
+    ]
+  },
+  "avoid": {
+    "value": [
+      "blue-purple-gradient",
+      "large-red-areas",
+      "gold",
+      "calligraphy-font",
+      "traditional-patterns",
+      "ink-background",
+      "extreme-flatness",
+      "identical-cards",
+      "low-contrast-everywhere"
+    ],
+    "citations": [
+      {
+        "section": "Constraints",
+        "quote": "第一阶段不使用蓝紫渐变、大红、金色、书法字体、传统纹样或水墨背景"
+      },
+      {
+        "section": "Constraints",
+        "quote": "不需要全扁平化，不把所有 Card 做成相同的灰白方框"
+      },
+      {
+        "section": "Key decisions",
+        "quote": "克制不等于整个页面灰蒙蒙"
+      }
+    ]
+  },
+  "scope": {
+    "value": {
+      "type": "page",
+      "targets": [
+        "guose-demo/home"
+      ]
+    },
+    "citations": [
+      {
+        "section": "Key decisions",
+        "quote": "先用 Guose 自有 demo 首页"
+      },
+      {
+        "section": "Key decisions",
+        "quote": "范围仅为首页"
+      }
+    ]
+  },
+  "allowLayoutChange": {
+    "value": false,
+    "citations": [
+      {
+        "section": "Constraints",
+        "quote": "不通过重新布局制造设计感"
+      }
+    ]
+  },
+  "traditionalStrength": {
+    "value": 0.3,
+    "citations": [
+      {
+        "section": "Key decisions",
+        "quote": "用户明确指定 traditionalStrength = 0.3"
+      }
+    ]
+  },
+  "intensity": {
+    "value": "high",
+    "citations": [
+      {
+        "section": "Key decisions",
+        "quote": "用户确认 intensity = high"
+      }
+    ]
+  }
+}

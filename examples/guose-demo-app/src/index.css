@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 100% 98%;
+    --foreground: 229 47% 16%;
+    --primary: 244 66% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 245 100% 96%;
+    --secondary-foreground: 244 66% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 229 47% 16%;
+    --muted: 228 55% 96%;
+    --muted-foreground: 226 24% 35%;
+    --border: 228 40% 86%;
+    --ring: 244 66% 45%;
+    --radius: 1.5rem;
+  }
+  body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "grill-me": {
+      "source": "satya-janghu/agent-skills",
+      "ref": "24b06ad34ef7b8ac46f666794e64a975bdd7fb9d",
+      "sourceType": "github",
+      "skillPath": "skills/grill-me/SKILL.md",
+      "computedHash": "6882854bc3e9628769ee35e93cbbb9820a748c2f303cc2816d29c9bdd388436a"
+    }
+  }
+}

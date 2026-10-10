@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-10",
+  "files": 168,
+  "stagedWorkingMismatch": [],
+  "hits": [
+    {
+      "file": "RELEASE_BLOCKER_CLOSURE_REPORT.md",
+      "kind": "absolute"
+    },
+    {
+      "file": "src/repo/safety.ts",
+      "kind": "absolute"
+    },
+    {
+      "file": "tests/execution.test.ts",
+      "kind": "absolute"
+    },
+    {
+      "file": "tests/security.test.ts",
+      "kind": "absolute"
+    },
+    {
+      "file": "tests/security.test.ts",
+      "kind": "secrets"
+    },
+    {
+      "file": "tests/security.test.ts",
+      "kind": "emails"
+    },
+    {
+      "file": "tests/staleness.test.ts",
+      "kind": "emails"
+    },
+    {
+      "file": "tests/verification.test.ts",
+      "kind": "emails"
+    }
+  ],
+  "png": [
+    {
+      "file": "docs/assets/after-mobile.png",
+      "sha256": "4cccf877c17215b1a8b4c9cbd5ba4a75ee3fbad5f02aa5f23dd45a99e22daaf5",
+      "chunkTypes": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sensitiveMetadata": false
+    },
+    {
+      "file": "docs/assets/after.png",
+      "sha256": "bc3ec9d0339edf32e4879d99212dd4677579f8d9f04dfa1c865c0758e3a99e64",
+      "chunkTypes": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sensitiveMetadata": false
+    },
+    {
+      "file": "docs/assets/before-mobile.png",
+      "sha256": "ae21bc779f2ae512fc802b1470ee7c5f1dc99bcf6925fabe768acc8842d77236",
+      "chunkTypes": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sensitiveMetadata": false
+    },
+    {
+      "file": "docs/assets/before.png",
+      "sha256": "1dab4551ba8a34604c92e4788933fc2e1c07b5b64a7e124a205ad0d4c2eaa8c1",
+      "chunkTypes": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sensitiveMetadata": false
+    }
+  ],
+  "forbidden": [],
+  "contentManifestHash": "sha256:3bb85bc2816ece67d7f08cff385689e29fdd7707f52b2b8d72f5fc1af582437a",
+  "commits": 0,
+  "remoteConfigured": false,
+  "publicAuthor": "PENDING_USER_INPUT",
+  "scope": "staged public tree + current bytes + PNG metadata; best effort, manual hit review required",
+  "manualReview": {
+    "result": "NO_REAL_PERSONAL_PATHS_OR_CREDENTIALS_DETECTED_IN_REVIEWED_SCOPE",
+    "absoluteHits": "Report discusses generic home prefix; safety regex/tests intentionally detect home paths. Not actual private workspace.",
+    "secretHits": "Empty synthetic PEM marker in security fixture, not a usable key.",
+    "emailHits": "Reserved example test addresses used only for temporary Git fixtures; no private maintainer contact.",
+    "images": "Existing approved screenshot hashes preserved; no textual/EXIF chunks.",
+    "finalHistoryPrivacy": "PENDING_USER_INPUT_AUTHOR_DECISION"
+  },
+  "limits": [
+    "Best effort, not complete secret guarantee.",
+    "Snapshot before addition of this audit-result file; generated audit files rechecked separately.",
+    "No candidate commits/remote; author is not approved."
+  ]
+}

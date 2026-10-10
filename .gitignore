@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.log
+.grill/
+/.guose-local/
+/.playwright-cli/
+/output/
+*.tgz
+/docs/validation/**/*.json.gz
+/docs/diagnostics/**/*.json.gz

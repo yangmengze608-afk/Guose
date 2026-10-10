@@ -1,0 +1,10 @@
+{
+  "name": "guose-static-dogfood-fixture",
+  "private": true,
+  "description": "Authored static parser input; not an installed or executable demo app.",
+  "dependencies": {
+    "react": "19.0.0",
+    "tailwindcss": "4.0.0",
+    "class-variance-authority": "0.7.1"
+  }
+}

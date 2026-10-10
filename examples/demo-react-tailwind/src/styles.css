@@ -1,0 +1,10 @@
+:root {
+  --primary: #123456;
+  --primary-foreground: #234567;
+  --background: #ffffff;
+  --foreground: #111111;
+}
+.legacy-label { color: var(--primary); }
+.legacy-label { color: #123456; }
+.legacy-other { background: #123456; border-radius: 12px; }
+.legacy-pill { border-radius: 24px; }
