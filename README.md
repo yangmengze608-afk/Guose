@@ -108,7 +108,7 @@ adapters need scope agreement; no stable public plugin ABI is promised.
 [Contributing](CONTRIBUTING.md) · [MIT](LICENSE) ·
 [Third-party notices](THIRD_PARTY_NOTICES.md) · [Conduct](CODE_OF_CONDUCT.md)
 
-Current source candidate **v0.1.0-rc.1**, not a tagged GitHub release or production-readiness claim.
+Current prerelease **v0.1.0-rc.1** is published as source on GitHub; it is not a production-readiness claim.
 Public repository history begins with the v0.1 release candidate. Earlier
 development history is intentionally not published because it contains local
 development and audit artifacts; this is not the project's first development day.
