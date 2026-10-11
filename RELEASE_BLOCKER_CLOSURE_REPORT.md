@@ -73,8 +73,8 @@ npm audit demo仍exit1，未宣称AUDIT_PASS。Root production/runtime HIGH=0。
 
 PRIVATE_REPORTING_CHANNEL = CONFIGURED。
 SECURITY.md 与 CODE_OF_CONDUCT.md 使用维护者GitHub profile已公开的真实邮箱作为私密邮件联系渠道；没有创建或声称不存在的账户。
-未来ENABLE_PRIVATE_VULNERABILITY_REPORTING_AFTER_REMOTE_CREATION仍保留为checklist增强项，
-但不再是当前private contact blocker。Public Git author采用repo-local配置，不修改global identity。
+GitHub Private Vulnerability Reporting 已在 public remote 创建后启用；真实邮箱仍保留为第二条私密报告渠道。
+Public Git author采用repo-local配置，不修改global identity。
 
 ## 9. Human fresh-checkout result
 
@@ -92,4 +92,4 @@ HUMAN_FRESH_SUCCESS = PASS。用户本人完成 Brief/Target 确认、39 条 ope
 公开树 privacy/secret quick scan 复核无真实本机路径、设备名或常见凭据模式。
 RELEASE_GATE = PASS_FOR_BOUNDED_PUBLIC_SOURCE_RELEASE。
 
-没有新增产品能力、没有扩大第三方执行、没有 npm publish 授权。GitHub remote/push/tag/release 仍需维护者显式公开发布授权。
+没有新增产品能力、没有扩大第三方执行、没有 npm publish 授权。维护者随后已显式授权并完成 public GitHub remote 创建与 main push；tag、GitHub Release 与 npm publish 仍未执行。

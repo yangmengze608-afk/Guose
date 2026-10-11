@@ -1,7 +1,7 @@
 # Contributing
 
 Start with Node 24, Git, `npm ci --ignore-scripts`, then README development checks.
-Use the public repository issues/PRs once the GitHub remote is created; no usage or adoption claim is implied by repository publication.
+Use this public repository's issues and pull requests for normal contributions; repository publication itself does not imply usage or adoption.
 
 ## Frozen boundaries
 

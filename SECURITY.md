@@ -11,7 +11,7 @@ Security reports include scope escape, unintended writes, protected-region
 mutation, unsafe undo, arbitrary execution and secret exposure. Never post
 credentials, private source or exploit details in issues.
 
-For sensitive security reports, email **yangmengze608@gmail.com** and do not post credentials, private source, or exploit details in public issues. After the public GitHub repository exists, the maintainer also intends to enable GitHub Private Vulnerability Reporting; until then, email is the verified private channel.
+For sensitive security reports, email **yangmengze608@gmail.com** or use GitHub Private Vulnerability Reporting. Do not post credentials, private source, or exploit details in public issues. Both private reporting routes are enabled for the public repository.
 
 No claim of zero vulnerabilities, hostile concurrent-filesystem confinement,
 complete secret detection or accessibility certification is made. Undo requires
