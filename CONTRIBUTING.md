@@ -1,7 +1,7 @@
 # Contributing
 
 Start with Node 24, Git, `npm ci --ignore-scripts`, then README development checks.
-The repository is local; no public issue/PR destination or adoption exists yet.
+Use the public repository issues/PRs once the GitHub remote is created; no usage or adoption claim is implied by repository publication.
 
 ## Frozen boundaries
 

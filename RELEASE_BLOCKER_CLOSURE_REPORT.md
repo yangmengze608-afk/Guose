@@ -1,6 +1,6 @@
 # RELEASE BLOCKER CLOSURE REPORT
 
-日期：2026-10-10。最终 **BLOCKERS_REMAIN**；不是P3，不是release批准。
+日期：2026-10-10；2026-10-11 完成 targeted re-review。最终 **RELEASE_BLOCKERS_CLOSED**；仅批准 bounded public source release，不代表 npm/production 批准。
 
 ## 1. Public history strategy
 
@@ -67,7 +67,7 @@ root/浏览器发布物不含demo工具链；安装source demo dev确实包含�
 不是“dev所以安全”；恶意改变构建输入或开放第三方执行即使该决定失效。
 CI只读、无secrets/deploy/publish、15分钟超时，不宣称sandbox/不存在DoS。
 npm audit demo仍exit1，未宣称AUDIT_PASS。Root production/runtime HIGH=0。
-Gate尚未复审风险接受；工程决定不能冒充独立gate批准。
+2026-10-11 targeted RELEASE_GATE 已复审该风险接受：对 bounded source release 为非阻塞；若开放第三方runtime/用户构建输入则必须重新评估。
 
 ## 8. Security/contact status
 
@@ -76,20 +76,20 @@ SECURITY.md 与 CODE_OF_CONDUCT.md 使用维护者GitHub profile已公开的真�
 未来ENABLE_PRIVATE_VULNERABILITY_REPORTING_AFTER_REMOTE_CREATION仍保留为checklist增强项，
 但不再是当前private contact blocker。Public Git author采用repo-local配置，不修改global identity。
 
-## 9. Human fresh-checkout readiness
+## 9. Human fresh-checkout result
 
-[HUMAN_FRESH_CHECKOUT_TEST](HUMAN_FRESH_CHECKOUT_TEST.md)准备好；
-candidate author 与真实 initial commit 已就绪；下一步仍需用户本人clone并逐步运行。
-HUMAN_FRESH_SUCCESS = PENDING_HUMAN。没有由Codex输入批准token、代替分类、代跑完整
-真人success或新visual approval。helper采用sample输入生成fresh draft、重新确认意图，
-不支持任意新session/Brief；用户若不同意sample必须停止，不为测试过关扩功能。
-start/end、真实commands、犹豫/错误/文档歧义、结果记录留给用户实际填写。
+[HUMAN_FRESH_CHECKOUT_TEST](HUMAN_FRESH_CHECKOUT_TEST.md) 已由真实用户在新的 checkout 上完成。
+最终测试绑定 commit `9fa487bbceaf03639df1efc0638d5a3af88bce5f`（修复前导/尾随空白 UX 后重新 fresh clone）。
+HUMAN_FRESH_SUCCESS = PASS。用户本人完成 Brief/Target 确认、39 条 operation 逐条审核、exact plan approval 与独立 execution authorization；没有脚本代填 approval token。
+执行结果为 4 APPLIED / 34 SKIPPED_UNKNOWN / 1 SKIPPED_SCOPE；第二终端 demo `npm ci --ignore-scripts`、lint、typecheck、4 tests、build 均通过。
+随后 live-process conditional undo 成功，临时 workspace 删除，原 checkout `git status --short` 与 demo diff 均为空。
+此前真实 fresh 测试曾因 classification 输入前导空白中止；该 UX 问题在 `9fa487b` 修复后，从全新 checkout 重新完整测试，因此中止轮次未冒充成功。
 
-## 10. Remaining blockers
+## 10. Targeted release re-review
 
-1. 真实用户fresh checkout helper success path。
+2026-10-11 对 author/privacy、private contact、human fresh evidence 与 bounded dependency risk 做 targeted RELEASE_GATE。
+根 full/prod audit = 0；demo prod audit = 0；demo full 仍为 5 HIGH / 2 MODERATE，并继续按本报告与风险注册表中的固定 owned-demo 构建边界接受，不宣称 AUDIT_PASS。
+公开树 privacy/secret quick scan 复核无真实本机路径、设备名或常见凭据模式。
+RELEASE_GATE = PASS_FOR_BOUNDED_PUBLIC_SOURCE_RELEASE。
 
-因此BLOCKERS_REMAIN。公开author/privacy与private contact两项已关闭；唯一剩余release blocker是
-HUMAN_FRESH_SUCCESS = PENDING_HUMAN。按既定门禁，本轮没有调用RELEASE_GATE或新增专家投票；
-只有真人fresh checkout通过后才进行一次targeted复审。candidate initial commit 已创建；
-未修改global identity；原私人历史仍完整。
+没有新增产品能力、没有扩大第三方执行、没有 npm publish 授权。GitHub remote/push/tag/release 仍需维护者显式公开发布授权。

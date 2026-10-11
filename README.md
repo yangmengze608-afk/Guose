@@ -31,8 +31,8 @@ materialize. This is a boundary, not a statistical safety percentage.
 
 ## Quick start — source checkout, not an npm release
 
-Use Node **24**, npm and Git. No remote repository has been created yet; obtain
-this source checkout first. No published package or hosted service exists.
+Use Node **24**, npm and Git. Clone or download the public source repository first.
+No published npm package or hosted service exists.
 
 ```sh
 npm ci --ignore-scripts
