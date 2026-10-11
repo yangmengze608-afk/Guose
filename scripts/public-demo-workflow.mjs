@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { createInterface } from "node:readline/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assertConfirmation, parseOperationClassification } from "./public-demo-input.mjs";
 import { detectRepository } from "../dist/repo/index.js";
 import { createDesignBriefReview } from "../dist/intent/brief-review.js";
 import { compileTransformationPlan } from "../dist/transformation/index.js";
@@ -33,7 +34,7 @@ if (!["--inspect", "--interactive"].includes(mode)) {
     assert(process.stdin.isTTY && process.stdout.isTTY, "Human TTY required; piped approval is not supported.");
     const terminal = createInterface({ input: process.stdin, output: process.stdout });
     let receipt;
-    const confirm = async token => assert.equal(await terminal.question(`Type exactly ${token} (anything else cancels): `), token, "Cancelled.");
+    const confirm = async token => assertConfirmation(await terminal.question(`Type exactly ${token} (anything else cancels): `), token);
     try {
       await confirm(`CONFIRM BRIEF ${draft.fingerprint}`);
       const briefApproval = review.decide("CONFIRM", { displayedDraftFingerprint: draft.fingerprint, sessionMarkdown: markdown,
@@ -55,8 +56,7 @@ if (!["--inspect", "--interactive"].includes(mode)) {
       process.stdout.write(JSON.stringify(plan, null, 2) + "\n");
       const operations = [];
       for (const [i, op] of plan.operations.entries()) {
-        const classification = await terminal.question(`#${i + 1} ${op.id}: CORRECT or REASONABLE; anything else cancels: `);
-        assert(["CORRECT", "REASONABLE"].includes(classification), "Plan not approved.");
+        const classification = parseOperationClassification(await terminal.question(`#${i + 1} ${op.id}: CORRECT or REASONABLE; anything else cancels: `));
         operations.push({ number: i + 1, id: op.id, type: op.type, role: op.target.role, humanClassification: classification });
       }
       await confirm(`APPROVE PLAN ${plan.contentFingerprint}`);
