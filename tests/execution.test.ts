@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeAll, vi } from "vitest";
-import { readFile, writeFile, readdir, symlink, unlink } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile, writeFile, lstat, symlink, unlink } from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { detectRepository } from "../src/repo/index.js";
@@ -10,7 +9,7 @@ import { compileTransformationPlan, type CompileTransformationRequest } from "..
 import type { TransformationPlan } from "../src/transformation/schema.js";
 import { createBundleContentFingerprint as fp, hashContent } from "../src/utils/content-hash.js";
 
-const fault = vi.hoisted(() => ({ cssWrite: false, sourceSnapshot: false }));
+const fault = vi.hoisted(() => ({ cssWrite: false, sourceSnapshot: false, createdWorkspaces: [] as string[] }));
 vi.mock("../src/execution/baseline.js", async importOriginal => {
   const baseline = await importOriginal<typeof import("../src/execution/baseline.js")>();
   return { ...baseline, readExecutionBaseline: async (root: string) => {
@@ -21,7 +20,11 @@ vi.mock("../src/execution/baseline.js", async importOriginal => {
 });
 vi.mock("node:fs/promises", async importOriginal => {
   const fs = await importOriginal<typeof import("node:fs/promises")>();
-  return { ...fs, open: (...args: Parameters<typeof fs.open>) => {
+  return { ...fs, mkdtemp: async (prefix: string) => {
+    const directory = await fs.mkdtemp(prefix);
+    if (fault.cssWrite && prefix.endsWith("guose-static-verify-")) fault.createdWorkspaces.push(directory);
+    return directory;
+  }, open: (...args: Parameters<typeof fs.open>) => {
     if (fault.cssWrite && String(args[0]).endsWith("/guose-p2-home.css")) throw new Error("synthetic write failure after Home mutation");
     return fs.open(...args);
   } };
@@ -153,11 +156,12 @@ describe("trusted-demo isolated scoped executor", () => {
     await writeFile(p, emitted); await undoExecution(r); expect(await cleanupExecution(r)).toBe("REMOVED");
   });
   it("partial write failure discards only the newly owned workspace atomically", async () => {
-    const parent = tmpdir(), before = await readdir(parent);
-    const auth = await authorizeDemoExecution(input()); fault.cssWrite = true;
+    const auth = await authorizeDemoExecution(input());
+    fault.createdWorkspaces.length = 0;
+    fault.cssWrite = true;
     try { await expect(executeApprovedPlan(auth)).rejects.toThrow("atomicity=PASS"); }
     finally { fault.cssWrite = false; }
-    const after = await readdir(parent);
-    expect(after.filter(n => n.startsWith("guose-static-verify-") && !before.includes(n))).toEqual([]);
+    expect(fault.createdWorkspaces).toHaveLength(1);
+    await expect(lstat(fault.createdWorkspaces[0]!)).rejects.toMatchObject({ code: "ENOENT" });
   });
 });
