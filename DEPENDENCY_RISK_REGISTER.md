@@ -1,5 +1,18 @@
 # Dependency risk register
 
+## 2026-10-25 CI advisory delta — RE-TRIAGE REQUIRED
+
+On 2026-10-25, the [post-merge CI run](https://github.com/yangmengze608-afk/Guose/actions/runs/40148103644) passed all build and test steps, **but** its `npm ci --ignore-scripts` install-time audit summaries reported:
+
+- Root (full dependency graph): **4 vulnerabilities — 2 HIGH, 2 MODERATE**.
+- Owned demo (full dependency graph): **5 MODERATE**.
+
+These counts are fresh install-time summaries, **not** detailed `npm audit --json` reports. The affected packages, direct/transitive chains, fix availability, production-only counts, and exploit reachability have **not** been re-triaged. A passing CI is not a security-audit pass. The 2026-10-10 figures and acceptance decision below are **historical snapshots**, not a current zero-vulnerability claim. For any further release or expanded execution scope, the risk decision is **REQUIRES_RETRIAGE**; no npm publication or production use is approved.
+
+Next review: run `npm audit --json` and `npm audit --omit=dev --json` in both root and `examples/guose-demo-app`, identify advisories and input reachability, assess compatible fixes, and rerun full tests. Do not blindly apply `npm audit fix --force` or reclassify severity based only on the install summaries.
+
+---
+
 日期：2026-10-10。范围：v0.1.0-rc.1 **source release**，不代表 npm/production批准。
 证据：npm audit --json、npm audit --omit=dev --json、npm explain、registry version、
 lockfile、实际源码输入路径及重新运行工程验证。npm audit 非零绝不记为 AUDIT_PASS。
