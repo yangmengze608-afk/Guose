@@ -1,5 +1,24 @@
 # Dependency risk register
 
+## 2026-11-01 detailed re-triage and production Zod patch
+
+Evidence: [pre-fix four-scope audit](https://github.com/yangmengze608-afk/Guose/actions/runs/41258569238), [post-fix four-scope audit](https://github.com/yangmengze608-afk/Guose/actions/runs/41258832823), [post-fix full CI](https://github.com/yangmengze608-afk/Guose/actions/runs/41258832784), [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5). Audit JSON artifacts are retained by the workflow for 14 days; this dated register is the durable summary.
+
+| Scope | Before patch (2026-11-01) | After patch (2026-11-01) |
+| --- | --- | --- |
+| Root full graph | 2 HIGH, 13 MODERATE (15 package entries) | 1 HIGH, 13 MODERATE (14 package entries) |
+| Root production-only | **1 HIGH (Zod)** | **0 findings** |
+| Owned demo full graph | 0 HIGH, 14 MODERATE | 0 HIGH, 14 MODERATE |
+| Owned demo production-only | 0 findings | 0 findings |
+
+**Fixed:** Root direct production dependency `zod` was locked to 4.6.5, within the advisory's affected range `<4.6.6`. The advisory describes memory exhaustion while validating oversized arrays. Guose uses Zod in runtime schemas, including array-bearing migration and snapshot schemas; no claim of universal non-reachability is justified. Raised the declared minimum from `^4.1.11` to `^4.6.7` and the lockfile resolution to **4.6.7**, using npm registry integrity metadata. `npm ci --ignore-scripts`, lint, typecheck, all root tests, build, locale, grill, demo workflow, demo install/test/build and diff check passed in the linked CI. The fresh post-fix `npm audit --omit=dev --json` confirms zero root production findings at this timestamp.
+
+**Remaining:** The root full graph still reports a **HIGH** finding for dev/transitive `vite` (audit range 8.3.0–8.3.2; remediation marked available), plus 13 MODERATE package entries across ESLint/minimatch, TypeScript-ESLint and Vitest/mocker chains. The owned demo full graph has 14 MODERATE entries, including selector-parser, Vitest and ESLint chains. Audit package counts include propagation nodes and must **not** be interpreted as independent exploit counts. Fix availability in npm audit does not prove a safe compatible upgrade; evaluate exact chains and test before changing versions. No force upgrade or broad dependency churn was performed.
+
+**Decision:** `ROOT_PRODUCTION_AUDIT_ZERO_AS_OF_2026-11-01` is a narrow factual audit result, **not** `PRODUCTION_APPROVED`, `AUDIT_PASS_ALL`, or permission to execute third-party code. `DEPENDENCY_RISK_DECISION = REQUIRES_RETRIAGE_FOR_NEXT_RELEASE` remains in effect for residual development/demo chains and any expanded scope. Continue source-only, owned trusted demo, human-approval and fresh-checkout gates. No npm publication, production deployment or new release is authorized by this maintenance change.
+
+---
+
 ## 2026-10-25 CI advisory delta — RE-TRIAGE REQUIRED
 
 On 2026-10-25, the [post-merge CI run](https://github.com/yangmengze608-afk/Guose/actions/runs/40148103644) passed all build and test steps, **but** its `npm ci --ignore-scripts` install-time audit summaries reported:
