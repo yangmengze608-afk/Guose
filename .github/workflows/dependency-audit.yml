@@ -53,8 +53,6 @@ jobs:
             done
           done
           echo "::warning::Audit snapshots are informational; release requires documented reachability and remediation triage."
-      - name: Inspect compatible Zod patch metadata (temporary probe)
-        run: npm view zod@4.6.7 dist.integrity dist.tarball --json
       - name: Retain raw audit evidence
         if: always()
         uses: actions/upload-artifact@v4
