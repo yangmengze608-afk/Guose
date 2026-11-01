@@ -1,0 +1,63 @@
+name: Dependency audit snapshot
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/dependency-audit.yml'
+      - 'package-lock.json'
+      - 'examples/guose-demo-app/package-lock.json'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Audit root and owned demo (full and production-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit-reports
+          for target in root demo; do
+            if [ "$target" = root ]; then
+              workdir=.
+            else
+              workdir=examples/guose-demo-app
+            fi
+            for scope in full prod; do
+              out="audit-reports/guose-audit-$target-$scope.json"
+              if [ "$scope" = prod ]; then
+                (cd "$workdir" && npm audit --omit=dev --json) > "$out" || rc=$?
+              else
+                (cd "$workdir" && npm audit --json) > "$out" || rc=$?
+              fi
+              if [ "${rc:-0}" -gt 1 ]; then
+                echo "::error::npm audit failed for $target/$scope (exit $rc)"
+                exit "$rc"
+              fi
+              unset rc
+              if ! jq -e '(.metadata.vulnerabilities | type) == "object" and (.vulnerabilities | type) == "object"' "$out" >/dev/null; then
+                echo "::error::Invalid npm audit response for $target/$scope; no security conclusion"
+                exit 1
+              fi
+              jq -c --arg project "$target" --arg scope "$scope" \
+                '{project:$project,scope:$scope,totals:.metadata.vulnerabilities,packages:[.vulnerabilities|to_entries[]|{name:.key,severity:.value.severity,isDirect:.value.isDirect,range:.value.range,fixAvailable:.value.fixAvailable,via:[.value.via[]|if type=="object" then (.url // .name) else . end]}]}' \
+                "$out"
+            done
+          done
+          echo "::warning::Audit snapshots are informational; release requires documented reachability and remediation triage."
+      - name: Retain raw audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: guose-dependency-audit-json
+          path: audit-reports/*.json
+          retention-days: 14
+          if-no-files-found: warn
